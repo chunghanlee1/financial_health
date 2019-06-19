@@ -1,9 +1,7 @@
 DESCRIPTION
 Personal financial analysis tools, including a program to evaluate financial health and another one to predict various financial information.
-fin_health_check.py=======================================
-This is a financial health-check tool that uses different approaches to find a user's financial situation, given various user-supplied inputs. 
-Currently the tool employs iterative and monte-carlo simulation based approaches.
-Compatible with Python 3.6
+	1. fin_health_check.py: This is a financial health-check tool that uses bisection search and Monte Carlo simulation to evaluate a user's financial situation, given various user-supplied inputs.
+	2. fin_pred.py: This is a prediction tool that guesses/predicts user financial situation (such as employment status or financaial planning time horizon) given user reponse to several survey questions.
 
 INSTALLATION
 Software: Python 3.6+
@@ -18,4 +16,4 @@ Required modules:
 EXECUTION
 	Step 1. Set the 'financial-health' folder as the working directory
 	Step 2. Run 'fin_aggregate.py' in the command line or IDE
-	Step 3. Follow the instructions
+	Step 3. Follow the instructions to begin financial health check or prediction.
