@@ -3,7 +3,7 @@
 @author: Chunghan
 """
 ################################ Load Dependencies ################################
-from fin_health_model_prelim import split_data
+from fin_pred_prelim import split_data
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np

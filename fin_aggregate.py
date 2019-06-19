@@ -6,7 +6,7 @@ Created on Tue Jun 18 15:34:24 2019
 """
 
 ################################ Load Dependencies ################################
-from fin_health_pred import run_fin_pred, data, model_specs
+from fin_pred import run_fin_pred, data, model_specs
 from fin_health_check import userHealthCheck, runExample
 
 
