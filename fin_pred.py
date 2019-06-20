@@ -190,6 +190,16 @@ def give_feedback(confidence_level, predicted_value, selected_response):
     """
     #Distinguish the printed output for different types of response variables
     if selected_response =='FWBscore':
+        if predicted_value[0] < 48:
+            well_being_rating = "in the bottom quartile among the respondents... Please work hard and build you wealth!"
+        elif predicted_value[0] < 56:
+            well_being_rating = "below average among the respondents... However, don't feel let down as you can always set up a financial plan to put yourself above average!"
+        elif predicted_value[0] < 65:
+            well_being_rating = "above average among the respondents. Keep up the good work!"
+        elif predicted_value[0] < 74:
+            well_being_rating = "very good compared to the other respondents. Congratulations!"
+        else:
+            well_being_rating = "top 10 percent among the respondents. Wow!"
         predicted_value = str(np.round(predicted_value[0]))+'/100' 
     else:
         predicted_value= str(predicted_value[0])
@@ -204,10 +214,9 @@ def give_feedback(confidence_level, predicted_value, selected_response):
     else:
         confidence_string = 'high'
     if selected_response =='FWBscore':
-        message='Your predicted result for "{}" is: {}, and we have {} confidence about this prediction. Our prediction explains around {}% of the variation in the data.'.format(response_description[selected_response],
+        message='Your predicted result for "{}" is: {}, which is {}'.format(response_description[selected_response],
                                         str(predicted_value),
-                                        confidence_string,
-                                        str(int(np.round(confidence_level,2)*100)))
+                                        well_being_rating)
     else:
         message='Your predicted result for "{}" is: {}, and we have {} confidence about this prediction. We expect to be correct around {}% of the time.'.format(response_description[selected_response],
                                         str(predicted_value),
