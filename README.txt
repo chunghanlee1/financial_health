@@ -14,6 +14,6 @@ Required modules:
 	6. pandas 0.23.0
 
 EXECUTION
-	Step 1. Set the 'financial-health' folder as the working directory
+	Step 1. Set the 'financial_health' folder as the working directory
 	Step 2. Run 'fin_aggregate.py' in the command line or IDE
 	Step 3. Follow the instructions to begin financial health check or prediction.
