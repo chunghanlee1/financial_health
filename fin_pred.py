@@ -12,6 +12,8 @@ import pandas as pd
 import os
 import ast
 import string
+import time
+import sys
 
 assert 'fwb.csv' in os.listdir(), "Please set working directory to the financial-health folder so we can access relevant data (fwb.csv)"
     
@@ -144,7 +146,9 @@ def select_option(predictor):
             print('\n You selected the option.... ' + choices[item_index.index(selected_index)])
             break
         else:
-            print('Please select a valid alphabet from '+item_index[0]+ ' to '+ item_index[-1])
+            print('\nSorry, {} is not a valid choice. Please select a valid alphabet from '.format(selected_index)+item_index[0]+ ' to '+ item_index[-1], flush=True)
+            sys.stdout.flush()
+            time.sleep(2)
             continue
     return item_content[item_index.index(selected_index)]
 
@@ -268,7 +272,7 @@ def run_fin_pred(data, model_specs):
     Output: None. This function prints the instructions and results
     """
     while True:
-        print('=========================================================')
+        print('\n=========================================================')
         #Start by asking user what to predict. Input is not case sensitive
         selected_response = str(input("You can select one of the items below for us to predict \n" + '\n'.join([a + ' :\t' + b for a,b in response_description.items()]) + '\nPlease enter the abbreviated code to select, for example, EMPLOY for employment status. Enter code here: '))
         #Start predicting the selected response variable
@@ -281,10 +285,12 @@ def run_fin_pred(data, model_specs):
                               make_dummy=True)
         #Redirect if user inputs wrong name for the variable
         else:
-            print("\n"+ selected_response +" is not a valid code. Please enter a code listed, such as FWBscore or MANAGE1_1")
+            print("\n"+ selected_response +" is not a valid code. Please enter a code listed, such as FWBscore or MANAGE1_1", flush=True)
+            sys.stdout.flush()
+            time.sleep(2)
             continue
         #Asking if the user wants to quit
-        quit = str(input('Would you want to continue predicting or quit? Enter Y if you want to continue, type any other letter to end the program: '))
+        quit = str(input('\nWould you want to continue predicting or quit? Enter Y if you want to continue, type any other letter to end the program: '))
         if quit!='Y':        
             print('\nSee you next time!')
             break

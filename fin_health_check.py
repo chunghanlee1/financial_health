@@ -9,6 +9,8 @@ import scipy.stats as stats
 import random
 import pylab as plt
 from six.moves import input #Needed for Python 2.X
+import time
+import sys
 
 ################################ Define Functions ################################
 def userInput():
@@ -23,9 +25,13 @@ def userInput():
             userCurrentAge = int(input("Your current age is: "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userCurrentAge <0 or userCurrentAge > 100:
             print("Please put in sensible numbers...")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Life expectancy
@@ -34,9 +40,13 @@ def userInput():
             userDeathAge = int(input("Your expect to live until (years old): "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userDeathAge > 200 or userDeathAge <= userCurrentAge:
             print("Please put in sensible numbers...")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Retirement
@@ -45,12 +55,18 @@ def userInput():
             userRetirementAge = int(input("Your planned retirement age: "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userRetirementAge > userDeathAge:
             print("Please put in sensible numbers...")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         elif userRetirementAge < userCurrentAge:
             print("Have you already retired? If so, set this equal to your current age!")
+            sys.stdout.flush()
+            time.sleep(2)
             continue
         break
     #Yearly Income
@@ -59,9 +75,13 @@ def userInput():
             userIncome = int(input("Your average yearly income: "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userIncome <0:
             print("You can't really have negative income...")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Income Growth
@@ -78,9 +98,13 @@ def userInput():
             userSpending = int(input("Your spending every year: "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userSpending <0:
             print("You can't really have negative spending...")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Inflation Rate
@@ -89,6 +113,8 @@ def userInput():
             inflation = float(input("Inflation rate (in decimal places, default is 0.02): ") or 0.02)
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Savings
@@ -97,9 +123,13 @@ def userInput():
             userSavings = int(input("Your current savings amount: "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if userSavings <0:
             print("You can't really have negative savings...Don't count debt in")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         break
     #Ivestment risk level
@@ -108,9 +138,13 @@ def userInput():
             investmentRisk = int(input("Please rate your portfolio's risk from 0 (riskless) to 10 (risky): "))
         except ValueError:
             print("Make sure you type in numbers!")
+            sys.stdout.flush()
+            time.sleep(1)
             continue
         if investmentRisk <0 or investmentRisk >10:
             print("Please choose from the list of 0 to 10...")
+            sys.stdout.flush()
+            time.sleep(2)
             continue
         break
     return userIncome, incomeGrowth, userSpending, inflation, userSavings, investmentRisk, userCurrentAge, userDeathAge, userRetirementAge
@@ -324,6 +358,8 @@ def beginHealthCheck(userIncome, incomeGrowth, userSpending, inflation, userSavi
             break
         else:
             print("Make sure you type in 'b', 'a', or 'e'!")
+            sys.stdout.flush()
+            time.sleep(2)
             continue
     
 def userHealthCheck():
@@ -385,6 +421,8 @@ def runExample():
                     choice = str(input("Type 'h' for a healthy example, 's' for so-so, 'u' for a bit unhealthy: "))
                 except:
                     print("Please type a letter.")
+                    sys.stdout.flush()
+                    time.sleep(2)
                     continue
                 if choice=='h':
                     userIncome = 1000
@@ -412,6 +450,8 @@ def runExample():
                     break
                 else:
                     print("You did not select from 'h', 's', or 'u'.")
+                    sys.stdout.flush()
+                    time.sleep(2)
                     continue
             while True:
                 try:
@@ -430,6 +470,8 @@ def runExample():
                     break
                 else:
                     print("You did not select from 'y', 'm', or 'o'.")
+                    sys.stdout.flush()
+                    time.sleep(2)
                     continue
             while True:
                 try:
@@ -450,6 +492,8 @@ def runExample():
             break
         else:
             print("You did not select from 'i', or 'r'.")
+            sys.stdout.flush()
+            time.sleep(2)
             continue
     print('Have a good day!')
 
